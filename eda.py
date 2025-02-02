@@ -15,7 +15,8 @@ def draw_boxplots(cols, data, filename):
         axes[i].legend_.remove()
         axes[i].set_title(f"{col}")
         axes[i].set_xlabel("")
-    fig.legend(handles, labels, title="Wine Quality", ncol=len(labels), loc="upper center")
+    fig.legend(handles, labels, title="Wine Quality", ncol=len(labels), loc="upper center",
+                 frameon=True, fancybox=True, shadow=True, fontsize=16)
     plt.savefig(filename)
     plt.clf()
 
@@ -62,7 +63,6 @@ def process_input(filename):
     wines = wines.drop_duplicates()
     cols = get_cols(wines)
  
-
     wines = remove_outliers(cols, wines)
     get_figures(wines, "Cleandata", cols)
     wines.to_csv("./data/WinesCleaned.csv", index=False)
