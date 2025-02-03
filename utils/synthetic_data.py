@@ -29,6 +29,7 @@ def generate_synthetic_data(filename, num_samples, outfile):
     model.fit(df)
     synthetic_data = model.sample(num_samples)
 
+    # Combine the original data with the newly generated synthetic data
     expanded_df = pd.concat([df,synthetic_data])
     expanded_df.to_csv(outfile, index=False)
     check_qual(df, synthetic_data, metadata)

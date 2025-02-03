@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import pickle
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Normalization, Dropout
@@ -44,11 +45,15 @@ def run_nn(filename):
                     epochs=100, 
                     validation_split=0.2, 
                     callbacks=[early_stopping],
-                    verbose=1)
+                    verbose=0)
 
   y_pred = model.predict(X_test)
   compute_metrics(y_test, y_pred)
   plot_loss(history.history['loss'], history.history['val_loss'])
+
+  # Save the model to a pickle file
+  with open("./data/model.pkl", "wb") as f:
+    pickle.dump(model, f)
 
 if __name__ == "__main__":
   run_nn("./data/WinesCleaned.csv")
