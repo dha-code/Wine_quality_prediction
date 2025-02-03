@@ -1,0 +1,15 @@
+kaggle==1.6.17
+kaleido==0.2.1
+keras==3.8.0
+keras-tuner==1.4.7
+matplotlib==3.10.0
+numpy==2.2.2
+pandas==2.2.3
+plotly==6.0.0
+scikeras==0.13.0
+scikit-learn==1.6.1
+scipy==1.15.1
+sdmetrics==0.18.0
+sdv==1.17.4
+seaborn==0.13.2
+tensorflow==2.18.0
